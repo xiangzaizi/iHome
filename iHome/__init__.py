@@ -5,6 +5,7 @@ from config import Config, configs
 from flask import Flask
 from flask_session import Session
 import redis
+from iHome.utils.common import RegexConverter
 
 
 # 创建可以被外界导入的数据库连接对象
@@ -34,8 +35,16 @@ def get_app(config_name):
     # 6.使用session在flask拓展实现将session数据存储在redis中
     Session(app)
 
+    # 导入自定义的路由转换器
+    app.url_map.converters['re'] = RegexConverter
+
+
     # 在app中注册蓝图
     from iHome.api_1_0 import api
     app.register_blueprint(api)
+
+    # 静态页面访问的注册
+    from iHome.web_html import html_blue
+    app.register_blueprint(html_blue)
 
     return app
