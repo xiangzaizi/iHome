@@ -34,4 +34,8 @@ def get_app(config_name):
     # 6.使用session在flask拓展实现将session数据存储在redis中
     Session(app)
 
+    # 在app中注册蓝图
+    from iHome.api_1_0 import api
+    app.register_blueprint(api)
+
     return app
