@@ -15,6 +15,7 @@ db = SQLAlchemy()
 # 创建可以被外界导入的连接到redis数据库的对象
 redis_store = None
 
+
 # 在业务逻辑一开始就开启日志
 def setupLogging(level):
     """
