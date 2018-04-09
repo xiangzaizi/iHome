@@ -2,6 +2,7 @@
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 from iHome import get_app, db
+from iHome import models  # 对表进行迁移
 
 
 # 创建app
@@ -15,8 +16,6 @@ manager = Manager(app)
 Migrate(app, db)
 # 将数据库迁移脚本添加到脚本管理器中
 manager.add_command('db', MigrateCommand)
-
-
 
 
 if __name__ == '__main__':
