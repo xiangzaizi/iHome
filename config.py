@@ -1,4 +1,5 @@
 # -*- coding:utf-8 -*-
+import logging
 import redis
 
 
@@ -34,7 +35,9 @@ class Config(object):
 class DevelopmentConfig(Config):
     """创建调试环境下的配置类"""
     # 我们的爱家租房的房型，调试模式的配置和Config一致，所以pass
-    pass
+
+    # 开发环境中日志等级设置为DEBUG
+    LOGGING_LEVEL = logging.DEBUG
 
 
 class ProductionConfig(Config):
