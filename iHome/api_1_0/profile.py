@@ -40,7 +40,7 @@ def get_user_hosues():
     # 4.响应结果
     return jsonify(errno=RET.OK, errmsg='OK', data=house_dict_list)
 
-
+"""查询用户是已认证"""
 @api.route('/users/auth', methods=['GET'])
 @login_required
 def get_user_auth():
@@ -67,7 +67,7 @@ def get_user_auth():
     # 3.响应结果
     return jsonify(errno=RET.OK, errmsg='OK', data=response_data)
 
-
+"""提供用户实名认证"""
 @api.route('/users/auth', methods=['POST'])
 @login_required
 def set_user_auth():
@@ -115,7 +115,7 @@ def set_user_auth():
     # 6.响应结果
     return jsonify(errno=RET.OK, errmsg='实名认证成功')
 
-
+"""修改用户名"""
 @api.route('/users/name', methods=['PUT'])
 @login_required
 def set_user_name():
@@ -166,7 +166,7 @@ def set_user_name():
     return jsonify(errno=RET.OK, errmsg='修改用户名成功')
 
 
-
+"""上传用户图像"""
 @api.route('/users/avatar', methods=['POST'])
 @login_required
 def upload_avatar():

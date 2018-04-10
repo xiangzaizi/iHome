@@ -46,6 +46,7 @@ class User(BaseModel, db.Model):
     def to_dict(self):
         """封装要响应的字典"""
         response_data = {
+            # 个人信息从七牛云获取下来
             'avatar_url': constants.QINIU_DOMIN_PREFIX + (self.avatar_url if self.avatar_url else ""),
             'name': self.name,
             'mobile': self.mobile,
