@@ -5,6 +5,7 @@ __pycache__/
 <<<<<<< HEAD
 .idea/
 .idea/vcs.xml
+.qiniu_pythonsdk_hostscache.json
 =======
 >>>>>>> 665e4ee331b272b460d9eda517e8ac2636683d58
 
