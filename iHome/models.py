@@ -38,7 +38,7 @@ class User(BaseModel, db.Model):
     def password(self, value):
         # value 是外界传入的密码的明文数据
         self.password_hash = generate_password_hash(value)
-
+    """用户密码的校验"""
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 

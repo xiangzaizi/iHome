@@ -36,7 +36,7 @@ def logout():
 
     return jsonify(errno=RET.OK, errmsg='退出登录成功')
 
-
+"""用户登录代码的实现"""
 @api.route('/sessions', methods=['POST'])
 def login():
     """实现登录
