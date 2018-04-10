@@ -59,7 +59,7 @@ function sendSMSCode() {
         return;
     }
 
-    // TODO: 通过ajax方式向后端接口发送请求，让后端发送短信验证码
+    // 通过ajax方式向后端接口发送请求，让后端发送短信验证码
     // 要发送给服务端的数据
     var params = {
       'mobile':mobile,
@@ -93,6 +93,7 @@ function sendSMSCode() {
 
                     num = num - 1;
                 }, 1000);
+
             } else {
                 // 发送短信验证码失败
                 // 重新添加点击事件
@@ -125,7 +126,7 @@ $(document).ready(function() {
         $("#password2-err").hide();
     });
 
-    // TODO: 注册的提交(判断参数是否为空)
+    // 注册的提交(判断参数是否为空)
     $('.form-register').submit(function (event) {
         // 阻止form表单自己的提交时间
         event.preventDefault();

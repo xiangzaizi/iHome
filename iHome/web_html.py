@@ -1,9 +1,9 @@
 # -*- coding:utf-8 -*-
-from flask import Blueprint
+from flask import Blueprint, current_app,make_response
 
 
 # 创建蓝图
-from flask import current_app
+from flask_wtf.csrf import generate_csrf
 
 html_blue = Blueprint('html_blue', __name__)
 
@@ -28,5 +28,16 @@ def get_static_html(file_name):
 
     # return current_app.send_static_file(file_path)
     # file_path= u'/html/api/1.0/index.html'
-    return current_app.send_static_file(file_name)
+
+    # 获取response
+    response = make_response(current_app.send_static_file(file_name))
+    token = generate_csrf()
+
+    # 将csrf_token数据写入到cookie中
+    response.set_cookie('csrf_token', token)
+
+
+    # 查找指定路径下的静态页面的时候, 在cookie中设置csrf_token
+    # return current_app.send_static_file(file_name)
+    return response
 
