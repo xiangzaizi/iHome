@@ -46,7 +46,7 @@ def send_sms_code():
         current_app.logger.error(e)
         return jsonify(errno=RET.DBERR, errmsg='查询服务器验证码失败')
 
-    # 判断是否为空或者过期
+    # 判断存储的验证码是否为空或者过期
     if not imageCode_server:
         return jsonify(errno=RET.NODATA, errmsg='验证码不存在')
 

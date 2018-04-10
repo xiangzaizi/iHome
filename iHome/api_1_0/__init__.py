@@ -6,4 +6,4 @@ from flask import Blueprint
 api = Blueprint('api_1_0', __name__, url_prefix='/api/1.0')
 
 # 将蓝图注册的路由一并导入, 为视图和路由之间建立关系
-from . import verify
+from . import verify, passport
