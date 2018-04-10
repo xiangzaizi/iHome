@@ -42,6 +42,7 @@ class User(BaseModel, db.Model):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
+    """用户信息展示的优化"""
     def to_dict(self):
         """封装要响应的字典"""
         response_data = {
