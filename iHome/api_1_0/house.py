@@ -350,7 +350,7 @@ def get_areas():
     3.响应结果
     """
 
-    # 查询缓存数据，如果有缓存数据，就使用缓存数据，反之，就查询，并缓存新查询的数据
+    #   查询缓存数据，如果有缓存数据，就使用缓存数据，反之，就查询，并缓存新查询的数据
     try:
         area_dict_list = redis_store.get('Areas')
         if area_dict_list:
@@ -370,7 +370,7 @@ def get_areas():
     for area in areas:
         area_dict_list.append(area.to_dict())
 
-    # 缓存城区信息到redis : 没有缓存成功也没有影响，因为前爱你会判断和查询
+    #   缓存城区信息到redis : 没有缓存成功也没有影响，因为前爱你会判断和查询
     try:
         redis_store.set('Areas', area_dict_list, constants.AREA_INFO_REDIS_EXPIRES)
     except Exception as e:
