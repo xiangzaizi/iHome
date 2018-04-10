@@ -29,7 +29,7 @@ class User(BaseModel, db.Model):
     houses = db.relationship("House", backref="user")  # 用户发布的房屋
     orders = db.relationship("Order", backref="user")  # 用户下的订单
 
-
+    # 用户密码加密处理
     @property
     def password(self):
         raise AttributeError('can not read')
